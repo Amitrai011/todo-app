@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ALL, DONE, TODO } from "@/utils/utilities";
+import { ALL, DONE, TODO, updateLocalStorage } from "@/utils/utilities";
 
 const todos = localStorage.getItem("todos")
   ? JSON.parse(localStorage.getItem("todos"))
@@ -10,26 +10,34 @@ const todoSlice = createSlice({
   initialState: { todos, filter: ALL },
   reducers: {
     addTodo: (state, action) => {
-      state.todos.push(action.payload);
-      localStorage.setItem("todos", JSON.stringify(state.todos));
+      state.todos = [...state.todos, action.payload];
+      updateLocalStorage(state.todos);
     },
     updateTodo: (state, action) => {
       const { id, todo } = action.payload;
       const index = state.todos.findIndex((myTodo) => myTodo.id === id);
-      state.todos[index] = todo;
-      localStorage.setItem("todos", JSON.stringify(state.todos));
+      if (index !== -1) {
+        const newTodos = [...state.todos];
+        newTodos[index] = todo;
+        state.todos = newTodos;
+        updateLocalStorage(newTodos);
+      }
     },
     deleteTodo: (state, action) => {
       const id = action.payload;
-      const index = state.todos.findIndex((myTodo) => myTodo.id === id);
-      state.todos.splice(index, 1);
-      localStorage.setItem("todos", JSON.stringify(state.todos));
+      const updatedTodos = state.todos.filter((todo) => todo.id !== id);
+      state.todos = updatedTodos;
+      updateLocalStorage(updatedTodos);
     },
     completeTodo: (state, action) => {
       const id = action.payload;
       const index = state.todos.findIndex((myTodo) => myTodo.id === id);
-      state.todos[index].isCompleted = !state.todos[index].isCompleted;
-      localStorage.setItem("todos", JSON.stringify(state.todos));
+      if (index !== -1) {
+        const newTodos = [...state.todos];
+        newTodos[index].isCompleted = !newTodos[index].isCompleted;
+        state.todos = newTodos;
+        updateLocalStorage(newTodos);
+      }
     },
     filterTodo: (state, action) => {
       state.filter = action.payload;
