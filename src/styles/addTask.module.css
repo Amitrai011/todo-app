@@ -1,0 +1,62 @@
+.addTaskContainer {
+  background: #e8f2ff;
+  width: 55%;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 3rem;
+
+  .subtitle {
+    margin: 24px 0 8px 0;
+    align-self: flex-start;
+  }
+}
+
+.inputArea {
+  font-size: 1rem;
+  font-weight: 400;
+  background: #ffffff;
+  border: 1px #e3e5e5 solid;
+  padding: 13px 16px;
+  border-radius: 8px;
+  width: 92%;
+  outline: none;
+}
+
+.addTitle {
+  height: 24px;
+  align-self: flex-start;
+}
+
+.addDescription {
+  height: 123px;
+  resize: none;
+  align-self: flex-start;
+}
+
+.addTaskBtn {
+  background-color: #002964;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+@media only screen and (max-width: 850px) {
+  .addTaskContainer {
+    width: 100%;
+
+    .addTaskBtn {
+      margin-bottom: 1rem;
+    }
+  }
+}

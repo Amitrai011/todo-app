@@ -1,0 +1,44 @@
+.taskContainer {
+  width: 100%;
+  margin-top: 104px;
+}
+
+.filterBtnContainer {
+  display: flex;
+  gap: 1rem;
+  margin-top: 25px;
+  margin-left: 40px;
+
+  .filterBtn {
+    background-color: #ffffff;
+    border: 1px solid #002964;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #002964;
+    padding: 9px 2.62rem;
+    cursor: pointer;
+  }
+
+  .filterSelected {
+    background: #002964;
+    color: white;
+    transition: all 0.2s;
+  }
+}
+
+.todoContainer::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.todoContainer {
+  margin-right: 37px;
+  margin-left: 40px;
+  overflow: auto;
+  height: calc(100% - 145px);
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
