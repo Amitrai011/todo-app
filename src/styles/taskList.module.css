@@ -1,5 +1,5 @@
 .taskContainer {
-  width: 100%;
+  width: 60%;
   margin-top: 104px;
 }
 
@@ -20,7 +20,7 @@
     font-weight: 500;
     font-size: 14px;
     color: #002964;
-    padding: 9px 2.62rem;
+    padding: 7px 2.4rem;
     cursor: pointer;
   }
 
@@ -44,7 +44,7 @@
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 8px;
 
   .placeholderTitle {
     margin: auto;
@@ -54,6 +54,10 @@
 }
 
 @media only screen and (max-width: 850px) {
+  .taskContainer {
+    margin-top: 3rem;
+  }
+
   .todoContainer {
     margin-left: 20px;
     margin-bottom: 1rem;
