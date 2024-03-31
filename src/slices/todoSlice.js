@@ -1,14 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ALL, DONE, TODO, updateLocalStorage } from "@/utils/utilities";
 
-const todos = localStorage.getItem("todos")
-  ? JSON.parse(localStorage.getItem("todos"))
-  : [];
-
 const todoSlice = createSlice({
   name: "todo",
-  initialState: { todos, filter: ALL },
+  initialState: { todos: [], filter: ALL },
   reducers: {
+    updateInitialState: (state, action) => {
+      state.todos = action.payload;
+    },
     addTodo: (state, action) => {
       state.todos = [...state.todos, action.payload];
       updateLocalStorage(state.todos);
@@ -45,8 +44,14 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, completeTodo, updateTodo, deleteTodo, filterTodo } =
-  todoSlice.actions;
+export const {
+  addTodo,
+  completeTodo,
+  updateTodo,
+  deleteTodo,
+  filterTodo,
+  updateInitialState,
+} = todoSlice.actions;
 
 export const selectFilteredTodos = (state) => {
   const { todos, filter } = state.todo;

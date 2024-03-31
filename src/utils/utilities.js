@@ -3,5 +3,7 @@ export const DONE = "done";
 export const TODO = "todo";
 
 export const updateLocalStorage = (todos) => {
-  localStorage.setItem("todos", JSON.stringify(todos));
+  if (typeof window !== "undefined" && window.localStorage) {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
 };

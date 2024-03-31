@@ -1,9 +1,14 @@
 "use client";
 import styles from "@/styles/taskList.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { selectFilteredTodos, filterTodo } from "@/slices/todoSlice";
+import {
+  selectFilteredTodos,
+  filterTodo,
+  updateInitialState,
+} from "@/slices/todoSlice";
 import { ALL, DONE, TODO } from "@/utils/utilities";
 import Task from "./Task";
+import { useEffect } from "react";
 
 const TaskList = ({ onEdit }) => {
   const todos = useSelector(selectFilteredTodos);
@@ -13,6 +18,13 @@ const TaskList = ({ onEdit }) => {
   const handleFilter = (filter) => {
     dispatch(filterTodo(filter));
   };
+
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"));
+    if (todos) {
+      dispatch(updateInitialState(todos));
+    }
+  }, []);
 
   return (
     <div className={styles.taskContainer}>
