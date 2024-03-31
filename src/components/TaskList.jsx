@@ -56,7 +56,7 @@ const TaskList = ({ onEdit }) => {
         </button>
       </div>
       <div className={styles.todoContainer}>
-        {todos.length > 0 ? (
+        {todos.length > 0 || filter !== ALL ? (
           todos.map((todo) => (
             <Task key={todo.id} onEdit={onEdit} todo={todo} />
           ))
