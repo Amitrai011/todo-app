@@ -1,6 +1,11 @@
 .addTaskContainer {
   background: #e8f2ff;
   width: 55%;
+
+  .heading {
+    margin-left: "3rem";
+    margin-top: 104px;
+  }
 }
 
 .inputContainer {
@@ -57,6 +62,14 @@
 
     .addTaskBtn {
       margin-bottom: 1rem;
+    }
+
+    .heading {
+      margin-left: 20px;
+    }
+
+    .inputContainer {
+      margin: 0 20px;
     }
   }
 }

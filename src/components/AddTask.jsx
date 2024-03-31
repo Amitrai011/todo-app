@@ -71,7 +71,7 @@ class AddTask extends React.Component {
     const buttonText = this.props.id ? "Update Todo" : "Add Task";
     return (
       <div className={styles.addTaskContainer}>
-        <h1 style={{ marginLeft: "3rem", marginTop: "104px" }}>Add task</h1>
+        <h1 className={styles.heading}>Add task</h1>
         <div className={styles.inputContainer}>
           <p className={styles.subtitle}>Task Title</p>
           <input
@@ -109,3 +109,5 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, { addTodo, completeTodo, updateTodo })(
   AddTask
 );
+
+// description nahi dala to bhi hil raha hai row

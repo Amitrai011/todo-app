@@ -1,6 +1,10 @@
 .taskContainer {
   width: 100%;
   margin-top: 104px;
+
+  .heading {
+    margin-left: 40px;
+  }
 }
 
 .filterBtnContainer {
@@ -41,4 +45,19 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+@media only screen and (max-width: 850px) {
+  .filterBtnContainer,
+  .todoContainer {
+    margin-left: 20px;
+  }
+
+  .heading {
+    margin-left: 20px;
+  }
+
+  .filterBtn {
+    padding: 10px 26px !important;
+  }
 }

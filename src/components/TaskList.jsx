@@ -28,7 +28,7 @@ const TaskList = ({ onEdit }) => {
 
   return (
     <div className={styles.taskContainer}>
-      <h1 style={{ marginLeft: "40px" }}>To do tasks</h1>
+      <h1 className={styles.heading}>To do tasks</h1>
       <div className={styles.filterBtnContainer}>
         <button
           onClick={() => handleFilter(ALL)}
