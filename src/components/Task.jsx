@@ -26,7 +26,7 @@ const Task = ({ onEdit, todo }) => {
             }`}
           >
             {todo.title.length > 120
-              ? todo.title.substring(0, 120) + "..."
+              ? todo.title.substring(0, 80) + "..."
               : todo.title}
           </p>
           {showDesc && (
