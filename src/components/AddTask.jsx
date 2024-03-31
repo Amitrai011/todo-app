@@ -109,5 +109,3 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, { addTodo, completeTodo, updateTodo })(
   AddTask
 );
-
-// description nahi dala to bhi hil raha hai row

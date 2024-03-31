@@ -56,9 +56,15 @@ const TaskList = ({ onEdit }) => {
         </button>
       </div>
       <div className={styles.todoContainer}>
-        {todos.map((todo) => (
-          <Task key={todo.id} onEdit={onEdit} todo={todo} />
-        ))}
+        {todos.length > 0 ? (
+          todos.map((todo) => (
+            <Task key={todo.id} onEdit={onEdit} todo={todo} />
+          ))
+        ) : (
+          <h1 className={styles.placeholderTitle}>
+            Click the {"'Add Task'"} button to add a task
+          </h1>
+        )}
       </div>
     </div>
   );

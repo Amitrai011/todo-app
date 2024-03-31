@@ -29,7 +29,7 @@ const Task = ({ onEdit, todo }) => {
               ? todo.title.substring(0, 80) + "..."
               : todo.title}
           </p>
-          {showDesc && (
+          {showDesc && todo.desc.length > 0 && (
             <p
               className={`${styles.desc} ${
                 todo.isCompleted && styles.isComplete
